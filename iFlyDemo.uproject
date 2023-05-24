@@ -1,0 +1,22 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{ED8D4FBB-4CD0-58A3-BBDC-F59F88AD9B0C}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "iFlyDemo",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		}
+	]
+}
