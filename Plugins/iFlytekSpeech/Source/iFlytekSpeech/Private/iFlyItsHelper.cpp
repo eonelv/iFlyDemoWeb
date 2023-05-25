@@ -204,7 +204,12 @@ FString iFlyItsHelper::CreatePackage(FString& data, int pStatus)
 	TSharedPtr<FJsonObject> object = MakeShareable(new FJsonObject);
 
 	const FString AppID = this->my_app_login_params;
-	const FString strBase64 = FBase64::Encode(data);
+	std::string tempData = TCHAR_TO_UTF8(*data);
+	TArray<uint8> baseData;
+	baseData.AddUninitialized(tempData.length());
+
+	FMemory::Memcpy(baseData.GetData(), tempData.c_str(), tempData.length());
+	const FString strBase64 = FBase64::Encode(baseData);
 
 	const TSharedPtr<FJsonObject> common = MakeShareable(new FJsonObject);
 	common->SetStringField("app_id", AppID);
