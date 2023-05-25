@@ -146,10 +146,11 @@ enum XF_SDK_FUN_TYPE : uint8
 	AWAKEN,
 	TTS_ONLINE,
 	TTS_OFFLINE,
-	TTS_WEB,
+	TTS_WEB,//WebSocket版本
 	IAT_ONLINE,
 	RATSR_ONLINE,
-	ISE_ONLINE
+	ISE_ONLINE,
+	ITS_WEB//机器翻译
 };
 
 class XFProcessHandler

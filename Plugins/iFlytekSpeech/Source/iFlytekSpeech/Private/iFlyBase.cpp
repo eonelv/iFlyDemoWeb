@@ -111,6 +111,17 @@ FString iFlyBase::GetReqUrl()
 	return rHost;
 }
 
+FString iFlyBase::Sha256(const FString& Data)
+{
+	std::string hmac = NHMac::cSha256(Data);
+	TArray<uint8> datas;
+	datas.AddUninitialized(32);
+	FMemory::Memcpy(datas.GetData(), hmac.c_str(), 32);
+
+	FString strBase64 = FBase64::Encode(datas);
+	return strBase64;
+}
+
 FString iFlyBase::GetProtocol() const
 {
 	return TEXT("ws");

@@ -30,6 +30,7 @@ protected:
 	virtual bool OnTick();
 	virtual FString GetAuthString(const FString& Key, const FString & Data);
 	virtual FString GetReqUrl();
+	virtual FString Sha256(const FString & Data);
 
 	virtual FString GetProtocol() const;
 	virtual FString GetHost() const;

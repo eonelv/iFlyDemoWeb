@@ -47,7 +47,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="iFly|tts")
 	static void InitTts(const FString& AppID, const FString& AppKey, const FString& APISecret);
 	
-	UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject") , Category="iFly|tts")
+	UFUNCTION(BlueprintCallable, Category="iFly|tts")
 	static void StartTts(const FString& srcText);
 	
 	UFUNCTION(BlueprintCallable, Category="iFly|tts")
@@ -59,6 +59,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category="iFly|tts")
 	static void SetAudioComponent(UNAudioComponent* pAudioComponent);
 	static void OnTtsData(const void* datas, int32 len);
+
+	//its 机器翻译
+	UFUNCTION(BlueprintCallable, Category="iFly|its")
+	static void InitIts(const FString& AppID, const FString& AppKey, const FString& APISecret);
+	
+	UFUNCTION(BlueprintCallable , Category="iFly|its")
+	static void StartIts(const FString& srcText);
+
+	UFUNCTION(BlueprintCallable, Category="iFly|tts")
+	static void SetLanguage(const FString& pFrom, const FString& pTo);
 private:
 	static FRatsrMessageHandler MessageHandler;
 	static TArray<FString> Messages;

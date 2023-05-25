@@ -2,6 +2,8 @@
 
 
 #include "iFlyRtasrFunctionLibrary.h"
+
+#include "iFlyItsHelper.h"
 #include "iFlyRtasrHelper.h"
 #include "iFlyTtsHelper.h"
 #include "NAudioComponent.h"
@@ -141,4 +143,21 @@ void UiFlyRtasrFunctionLibrary::OnTtsData(const void* datas, int32 len)
 	{
 		AudioComponent->SetAudioData(datas, len);
 	}
+}
+
+void UiFlyRtasrFunctionLibrary::InitIts(const FString& AppID, const FString& AppKey, const FString& APISecret)
+{
+	iFlyItsHelper::Get()->SetHandler(XFRatsrHandler::Get());
+	iFlyItsHelper::Get()->SetAppSecret(APISecret);
+	iFlyItsHelper::Get()->Init(AppID, AppKey);
+}
+
+void UiFlyRtasrFunctionLibrary::StartIts(const FString& srcText)
+{
+	iFlyItsHelper::Get()->Start(srcText);
+}
+
+void UiFlyRtasrFunctionLibrary::SetLanguage(const FString& pFrom, const FString& pTo)
+{
+	iFlyItsHelper::Get()->SetLanguage(pFrom, pTo);
 }
